@@ -10,4 +10,6 @@
         android:name="com.android.coolweather.ChooseAreaFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+
 </FrameLayout>
