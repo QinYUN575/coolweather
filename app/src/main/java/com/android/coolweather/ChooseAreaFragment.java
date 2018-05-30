@@ -38,9 +38,9 @@ public class ChooseAreaFragment extends Fragment {
 
     public static final int LEVEL_PROVINCE = 0;
 
-    public static final int LEVEL_CITY =1;
+    public static final int LEVEL_CITY = 1;
 
-    public static final int LEVEL_COUNTY =2;
+    public static final int LEVEL_COUNTY = 2;
 
     private ProgressDialog progressDialog;
 
@@ -88,7 +88,7 @@ public class ChooseAreaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.choose_area, container,false);
+        View view = inflater.inflate(R.layout.choose_area, container, false);
         titleText = view.findViewById(R.id.title_text);
         backButton = view.findViewById(R.id.back_button);
         listView = view.findViewById(R.id.list_view);
@@ -125,7 +125,7 @@ public class ChooseAreaFragment extends Fragment {
                         intent.putExtra("weather_id", weatherId);
                         startActivity(intent);
                         getActivity().finish();
-                    } else if (getActivity() instanceof WeatherActivity){
+                    } else if (getActivity() instanceof WeatherActivity) {
                         WeatherActivity activity = (WeatherActivity) getActivity();
                         activity.drawerLayout.closeDrawers();
                         activity.swipeRefresh.setRefreshing(true);
@@ -164,7 +164,7 @@ public class ChooseAreaFragment extends Fragment {
         if (provinceList.size() > 0) {
             dataList.clear();
             //查询数据,并更新到 dataList 中
-            for (Province province:provinceList) {
+            for (Province province : provinceList) {
                 dataList.add(province.getProvinceName());
             }
             adapter.notifyDataSetChanged();
@@ -188,7 +188,7 @@ public class ChooseAreaFragment extends Fragment {
                 String.valueOf(selectedProvince.getId())).find(City.class);
         if (cityList.size() > 0) {
             dataList.clear();
-            for (City city:cityList) {
+            for (City city : cityList) {
                 dataList.add(city.getCityName());
             }
             adapter.notifyDataSetChanged();
@@ -212,7 +212,7 @@ public class ChooseAreaFragment extends Fragment {
                 String.valueOf(selectedCity.getId())).find(County.class);
         if (countyList.size() > 0) {
             dataList.clear();
-            for (County county:countyList) {
+            for (County county : countyList) {
                 dataList.add(county.getCountyName());
             }
             adapter.notifyDataSetChanged();
@@ -271,7 +271,7 @@ public class ChooseAreaFragment extends Fragment {
                             closeProgressDialog();
                             if ("province".equals(type)) {
                                 queryProvince();
-                            } else if("city".equals(type)) {
+                            } else if ("city".equals(type)) {
                                 queryCities();
                             } else if ("county".equals(type)) {
                                 queryCounties();
